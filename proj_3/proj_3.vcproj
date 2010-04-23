@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="proj_3"
+	Name="proj_3_git"
 	ProjectGUID="{CC8B6A69-504A-4F12-9944-00B524ED635C}"
 	RootNamespace="proj_3"
 	TargetFrameworkVersion="196613"
@@ -161,6 +161,10 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath=".\main.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -173,6 +177,42 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\baralho.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\baralho.h"
+				>
+			</File>
+			<File
+				RelativePath=".\incudes.h"
+				>
+			</File>
+			<File
+				RelativePath=".\jogador.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jogador.h"
+				>
+			</File>
+			<File
+				RelativePath=".\peca.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\peca.h"
+				>
+			</File>
+			<File
+				RelativePath=".\tabuleiro.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\tabuleiro.h"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>
