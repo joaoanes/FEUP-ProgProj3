@@ -171,16 +171,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-		</Filter>
-		<Filter
-			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
-			>
-			<File
-				RelativePath=".\baralho.cpp"
-				>
-			</File>
 			<File
 				RelativePath=".\baralho.h"
 				>
@@ -190,15 +180,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\jogador.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\jogador.h"
 				>
 			</File>
 			<File
-				RelativePath=".\peca.cpp"
+				RelativePath=".\jogo.h"
 				>
 			</File>
 			<File
@@ -206,11 +192,33 @@
 				>
 			</File>
 			<File
-				RelativePath=".\tabuleiro.cpp"
+				RelativePath=".\tabuleiro.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
+			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			>
+			<File
+				RelativePath=".\AAAAAAAAAAAAAAAAAAA.cd"
 				>
 			</File>
 			<File
-				RelativePath=".\tabuleiro.h"
+				RelativePath=".\baralho.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\jogador.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\peca.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\tabuleiro.cpp"
 				>
 			</File>
 		</Filter>

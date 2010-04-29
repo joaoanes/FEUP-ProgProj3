@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Intel C++ Project"
+	Version="11.0"
+	Name="proj_3_git"
+	ProjectGUID="{F114EC9C-C9D1-4BE9-AC98-3082B9B279BF}"
+	VCNestedProjectGUID="{CC8B6A69-504A-4F12-9944-00B524ED635C}"
+	VCNestedProjectFileName="proj_3.vcproj">
+	<Configurations/>
+	<Files/>
+</VisualStudioProject>
