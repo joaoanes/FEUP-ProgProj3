@@ -22,18 +22,23 @@ void Peca::setPunt(unsigned short pnt)
 {
 	PecaPontuacao = pnt;
 }
-char Peca::getLetter()
+char Peca::getLetter() const
 {
 	return PecaLetra;
 }
-unsigned short Peca::getPunt()
+unsigned short Peca::getPunt() const
 {
 	return PecaPontuacao;
 }
-bool Peca::operator==(const Peca& pc)
+bool const Peca::operator==(const Peca& pc)
 {
 	return ((PecaLetra == 
 		pc.getLetter()) && 
 		(PecaPontuacao == 
 		pc.getPunt()));
+}
+
+bool const Peca::operator!=(const Peca& pc)
+{
+	return !(operator==(pc));
 }

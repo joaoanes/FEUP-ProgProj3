@@ -1,9 +1,13 @@
 #include "baralho.h"
 
-
-Baralho::Baralho() //constroi baralho com string vazia
+Baralho::~Baralho()
 {
 
+}
+Baralho::Baralho() //constroi baralho com string vazia
+{	
+	vector<Peca> temp(0, Peca('_', 0));
+	BaralhoPecas = temp;
 }
 Baralho::Baralho(string filename) //constroi a partir de um txt as pecas uma a uma e randomiza
 {

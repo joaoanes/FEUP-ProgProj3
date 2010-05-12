@@ -1,3 +1,4 @@
+#pragma once
 #include "incudes.h"
 #include "peca.h"
 

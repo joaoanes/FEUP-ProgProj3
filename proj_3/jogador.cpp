@@ -1,5 +1,20 @@
 #include "jogador.h"
 
+Jogador::Jogador()
+{
+
+}
+
+Jogador::Jogador( string nome, unsigned short punt, vector<Peca> mao )
+{
+	JogadorNome = nome;
+	JogadorPontuacao = punt;
+	JogadorMao = mao;
+}
+Jogador::~Jogador()
+{
+
+}
 
 string Jogador::getName()
 {
@@ -17,7 +32,7 @@ void Jogador::setName(string name)
 {
 	JogadorNome = name;
 }
-void Jogador::setScore(unsigned short pnt)
+void Jogador::setPunt(unsigned short pnt)
 {
 	JogadorPontuacao = pnt;
 }
@@ -35,4 +50,30 @@ bool Jogador::inHand(vector<Peca> pecas) //check if all pecas of vec pecas are i
 		++i;
 	}
 	return result;
+}
+
+bool Jogador::removePeca( Peca peca )
+{
+	for (vector<Peca>::iterator ite = JogadorMao.begin(); ite != JogadorMao.end(); ++ite)
+	{
+		if (*ite == peca)
+		{
+			JogadorMao.erase(ite);
+			return true;
+		}
+	}
+	return false;
+}
+
+
+bool Jogador::removePeca( vector<Peca> pecas )
+{
+	bool check = true;
+	vector<Peca>::iterator ptr = pecas.begin();
+	while((ptr != pecas.end()) && (check))
+	{
+		check = check && removePeca(*ptr);
+		ptr++;
+	}
+	return check;
 }

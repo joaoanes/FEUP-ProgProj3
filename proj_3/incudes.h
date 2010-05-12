@@ -4,7 +4,8 @@
 #include <algorithm>
 #include <sstream>
 #include <list>
-#include <fstream>
 #include <set>
+#include <fstream>
+#include <iterator>
 
 using namespace std;
