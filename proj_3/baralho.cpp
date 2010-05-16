@@ -4,17 +4,16 @@ Baralho::~Baralho()
 {
 
 }
-Baralho::Baralho() //constroi baralho com string vazia
+Baralho::Baralho() //constroi baralho com vector vazio
 {	
-	vector<Peca> temp(0, Peca('_', 0));
+	vector<Peca> temp;
 	BaralhoPecas = temp;
 }
 Baralho::Baralho(string filename) //constroi a partir de um txt as pecas uma a uma e randomiza
 {
 	ifstream fiel;
 	fiel.open(filename.c_str());
-	if (fiel.is_open())
-	{
+	assert (fiel.is_open());
 		char letra;
 		unsigned short rep;
 		unsigned short punt;
@@ -24,20 +23,39 @@ Baralho::Baralho(string filename) //constroi a partir de um txt as pecas uma a u
 			fiel >> letra;
 			fiel >> rep;
 			fiel >> punt;
-			for (unsigned short i = rep; i > 0; ++i)
+			for (unsigned short i = rep; i > 0; --i)
 			{
 				Peca temp(letra, punt);
 				BaralhoPecas.push_back(temp);
 			}
 		}
-	}
 	random_shuffle(BaralhoPecas.begin(), BaralhoPecas.end());
 }
 Baralho::Baralho(vector<Peca> pecas)
 {
 	BaralhoPecas = pecas;
 }
-
+void Baralho::buildBaralho(string filename)
+{
+	ifstream fiel;
+	fiel.open(filename.c_str());
+	assert (fiel.is_open());
+	char letra;
+	unsigned short rep;
+	unsigned short punt;
+	while (! fiel.eof()) 
+	{
+		fiel >> letra;
+		fiel >> rep;
+		fiel >> punt;
+		for (unsigned short i = rep; i > 0; --i)
+		{
+			Peca temp(letra, punt);
+			BaralhoPecas.push_back(temp);
+		}
+	}
+	random_shuffle(BaralhoPecas.begin(), BaralhoPecas.end());
+}
 vector<Peca> Baralho::getBaralho()
 {
 	return BaralhoPecas;

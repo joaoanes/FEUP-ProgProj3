@@ -18,7 +18,6 @@ Highscores::~Highscores()
 bool Highscores::addScore(Score score) //falso se nao entrar no highscore, verdadeiro se entrar no sitio certo
 {
 	vector<Score>::iterator ptr;
-	
 	for (ptr = HighscoresTable.begin(); ((ptr != HighscoresTable.end()) || (score.ScorePunt >= ptr->ScorePunt)); ++ptr);
 	if (ptr == HighscoresTable.end())
 		return false;

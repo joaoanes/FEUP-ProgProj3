@@ -99,9 +99,10 @@
     <ClInclude Include="tabuleiro.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AAAAAAAAAAAAAAAAAAA.cd" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="dicionario.txt" />
+    <None Include="pecas.txt" />
+    <None Include="tabuleiro.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

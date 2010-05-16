@@ -15,7 +15,7 @@ public:
 	void addPecas(Peca peca); //add 1 peca
 	void addPecas(vector<Peca> pecas); //add 1+ peca
 	void shuffleBaralho(); //yeah
-
+	void buildBaralho(string filename);
 private:
 	vector <Peca> BaralhoPecas; 
 };

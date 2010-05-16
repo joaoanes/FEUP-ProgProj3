@@ -5,17 +5,21 @@
 #include "jogador.h"
 #include "dictionary.h"
 #include "baralho.h"
-#define ALPHABET_FILENAME
+
 
 class Jogo
 {
 public:
 	Jogo();
-	Jogo(string txt); //load game
-	Jogo(unsigned short ngame, Jogador player1, Jogador player2, Tabuleiro board, Dictionary dic, unsigned short handsize);
+	Jogo(unsigned short index, string txt); //load game
+	Jogo(unsigned short index, Jogador &player1, Jogador &player2, Tabuleiro &board, Dictionary &dic, unsigned short &handsize, Baralho &deck);
+	Jogo(unsigned short index);
+	Jogo(unsigned short index, Dictionary &dic, Baralho &deck, Tabuleiro &board);
 	virtual ~Jogo();
 
 	void start();
+	Baralho getBaralho();
+	void setBaralho(Baralho bar);
 	void setGameIndex(unsigned short ngame);
 	void setJogador1(Jogador player1);
 	void saveGame(string txt); //save game
@@ -37,6 +41,7 @@ public:
 	int intisizer(string str) /*string -> int */;
 	bool stringIsNumber(string& victim) /*Verifica se certa string pode representar um numero literal */;
 	void startMenu();
+	void match(Jogador* curplayer);
 private:
 	unsigned short JogoIndex;
 	unsigned short JogoHandSize;
@@ -44,4 +49,5 @@ private:
 	Jogador JogoJogador2;
 	Tabuleiro JogoTabuleiro;
 	Dictionary JogoDicionario;
+	Baralho JogoBaralho;
 };

@@ -1,16 +1,33 @@
 #include "jogo.h"
+const string DICIONARIO_FILENAME = "dicionario.txt";
+const string DECK_FILENAME = "pecas.txt";
+const string BOARD_FILENAME = "tabuleiro.txt";
 
 Jogo::Jogo()
 {
 }
-
-Jogo::Jogo( unsigned short ngame, Jogador player1, Jogador player2, Tabuleiro board, Dictionary dic, unsigned short handsize )
+Jogo::Jogo(unsigned short index, string txt)
+{
+	//TODO
+}
+Jogo::Jogo(unsigned short index)
+{
+	JogoIndex = index;
+}
+Jogo::Jogo(unsigned short index, Dictionary &dic, Baralho &deck, Tabuleiro &board)
+{
+	JogoDicionario = dic;
+	JogoIndex = index;
+	JogoTabuleiro = board;
+	JogoBaralho = deck;
+}
+Jogo::Jogo(unsigned short index, Jogador &player1, Jogador &player2, Tabuleiro &board, Dictionary &dic, unsigned short &handsize, Baralho &deck )
 {
 	JogoDicionario = dic;
 	JogoJogador1 = player1;
 	JogoJogador2 = player2;
 	JogoTabuleiro = board;
-	JogoIndex = ngame;
+	JogoIndex = index;
 	JogoHandSize = handsize;
 }
 Jogo::~Jogo()
@@ -105,57 +122,46 @@ void Jogo::setGameIndex( unsigned short ngame )
 {
 	JogoIndex = ngame;
 }
-
 void Jogo::setJogador1( Jogador player1 )
 {
 	JogoJogador1 = player1;
 }
-
 void Jogo::setJogador2( Jogador player2 )
 {
 	JogoJogador2 = player2;
 }
-
 void Jogo::setTabuleiro( Tabuleiro board )
 {
 	JogoTabuleiro = board;
 }
-
 void Jogo::setDictionary( Dictionary dic )
 {
 	JogoDicionario = dic;
 }
-
 void Jogo::setHandSize( unsigned short num )
 {
 	JogoHandSize = num;
 }
-
 unsigned short Jogo::getGameIndex()
 {
 	return JogoIndex;
 }
-
 Jogador Jogo::getJogador1()
 {
 	return JogoJogador1;
 }
-
 Jogador Jogo::getJogador2()
 {
 	return JogoJogador2;
 }
-
 Tabuleiro Jogo::getTabuleiro()
 {
 	return JogoTabuleiro;
 }
-
 Dictionary Jogo::getDictionary()
 {
 	return JogoDicionario;
 }
-
 unsigned short Jogo::getHandSize()
 {
 	return JogoHandSize;
@@ -177,21 +183,45 @@ void Jogo::showHighScores()
 
 }
 
+void Jogo::match(Jogador* curplayer)
+{
+	
+}
+
 void Jogo::start()
 {
-	Baralho decqk;
-
-
-	cout << "Por favor indique o nome do primeiro jogador";
+	JogoDicionario.buildDictionary(DICIONARIO_FILENAME);
+	JogoBaralho.buildBaralho(DECK_FILENAME);
+	JogoTabuleiro.buildTabuleiro(BOARD_FILENAME);
+	cout << "Por favor indique o nome do primeiro jogador: ";
 	string Jogador1Nome;
 	getline(cin, Jogador1Nome);
-	cout << "Por favor indique o nome do primeiro jogador";
+	cout << "Por favor indique o nome do primeiro jogador: ";
 	string Jogador2Nome;
 	getline(cin, Jogador2Nome);
-	Jogador ONE(Jogador1Nome, 0, decqk.getFirstNPecas(7));
-	Jogador TWO(Jogador2Nome, 0, decqk.getFirstNPecas(7));
+	Jogador ONE(Jogador1Nome, 0, JogoBaralho.getFirstNPecas(JogoHandSize));
+	Jogador TWO(Jogador2Nome, 0, JogoBaralho.getFirstNPecas(JogoHandSize));
 	JogoJogador1 = ONE;
 	JogoJogador2 = TWO;
+	srand (time(NULL));
+	if ((rand() % 2) == 0)
+	{
+		cout << "Foi determinado que o primeiro jogador sera o primeiro a jogar.\n";
+	}
+	else
+		cout << "Foi determinado que o segundo jogador sera o primeiro a jogar.\n";
+	system("pause");
 	
 
+
+}
+
+Baralho Jogo::getBaralho()
+{
+	return JogoBaralho;
+}
+
+void Jogo::setBaralho(Baralho bar)
+{
+	JogoBaralho = bar;
 }

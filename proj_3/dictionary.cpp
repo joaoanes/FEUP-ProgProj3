@@ -1,41 +1,77 @@
 #include "dictionary.h"
+#include <ctime>
+
 
 Dictionary::Dictionary()
 {
 }
 
-Dictionary::Dictionary(string &filename)
+Dictionary::Dictionary(string filename)
 {
-	set<string> dic;
 	ifstream file;
 	file.open(filename.c_str());
-	if (file.is_open())
-	{
+	assert (file.is_open());
+		cout << "Loading dicionario";
+		time_t start = time(NULL);
 		int nWords;
 		string word;
 		file >> nWords;
+		char* curchar = NULL;
+		char lastletter = 'A';
 		for (int i = 0; i < nWords; ++i)
 		{
 			file >> word;
-			for (size_t i = 0 ; i != word.size(); ++i)
-			{
-				char* curchar = &word[0];
-				for (size_t i = 0; i != word.size(); ++i)
+			curchar = &word[0];
+			if (toupper(*curchar) != lastletter)
 				{
-					toupper(*curchar);
-					++curchar;
+					cout << ".";
+					lastletter = toupper(*curchar);
 				}
-			}
+			while(*curchar != NULL)
+				*curchar++ = toupper(*curchar);
 			DictionaryContent.insert(word);
 		}
 		file.close();
-	}
+		cout << "Loading complete.\n";
+		time_t end = time(NULL);
+		cout << "Loading done in " << difftime(end, start) << " seconds.\n";
 }
+
 
 Dictionary::~Dictionary()
 {
 }
 
+void Dictionary::buildDictionary(string filename)
+{
+	ifstream file;
+	file.open(filename.c_str());
+	assert (file.is_open());
+	cout << "Loading dicionario";
+	time_t start = time(NULL);
+	int nWords;
+	string word;
+	file >> nWords;
+	char* curchar = NULL;
+	char lastletter = 'A';
+	for (int i = 0; i < nWords; ++i)
+	{
+		file >> word;
+		curchar = &word[0];
+		if (toupper(*curchar) != lastletter)
+		{
+			cout << ".";
+			lastletter = toupper(*curchar);
+		}
+		while(*curchar != NULL)
+			*curchar++ = toupper(*curchar);
+		DictionaryContent.insert(word);
+	}
+	file.close();
+	cout << "Loading complete.\n";
+	time_t end = time(NULL);
+	cout << "Loading done in " << difftime(end, start) << " seconds.\n";
+}
 void Dictionary::setDictionary(set<string> &dic)
 {
 	DictionaryContent = dic;

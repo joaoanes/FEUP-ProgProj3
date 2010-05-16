@@ -1,6 +1,7 @@
 #pragma once
 #include "incudes.h"
 #include "peca.h"
+const unsigned int SIDELENGTH = 15;
 
 struct Celula 
 {
@@ -19,11 +20,12 @@ public:
 	Tabuleiro(); //tabuleiro vazio, cheio de celulas vazias sem multipliers
 	Tabuleiro(string txt); //load game from txt
 	virtual ~Tabuleiro();
+	void showTabuleiro();
 	vector<vector <Celula>> getTabuleiro();
 	bool addPeca(Peca &piece, Pos &position) /*add peca to position, false if overwrite */;
 	Celula accessCelula(Pos &position);
-
-
+	void buildTabuleiro(string txt);
 private:
 	vector<vector <Celula>> TabuleiroCelulas;
+	void fillLine(vector<Celula>* ptrVec, string str);
 };
