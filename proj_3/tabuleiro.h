@@ -28,4 +28,5 @@ public:
 private:
 	vector<vector <Celula>> TabuleiroCelulas;
 	void fillLine(vector<Celula>* ptrVec, string str);
+	void showLine(vector<Celula>* ptr);
 };

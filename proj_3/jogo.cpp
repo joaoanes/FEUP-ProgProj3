@@ -3,6 +3,8 @@ const string DICIONARIO_FILENAME = "dicionario.txt";
 const string DECK_FILENAME = "pecas.txt";
 const string BOARD_FILENAME = "tabuleiro.txt";
 
+
+//Montes, MOOONTES de constuctores redundantes se seguem. Limpam-se apos fazer versao decente do projecto.
 Jogo::Jogo()
 {
 }
@@ -29,6 +31,11 @@ Jogo::Jogo(unsigned short index, Jogador &player1, Jogador &player2, Tabuleiro &
 	JogoTabuleiro = board;
 	JogoIndex = index;
 	JogoHandSize = handsize;
+}
+Jogo::Jogo( unsigned short index, unsigned short handsize )
+{
+		JogoIndex = index;
+		JogoHandSize = handsize;
 }
 Jogo::~Jogo()
 {
@@ -175,17 +182,17 @@ vector<Peca> Jogo::neededPecaForWord( string word, Pos position, char Orientatio
 
 void Jogo::loadGame( string txt )
 {
-
+	//TODO
 }
 
 void Jogo::showHighScores()
 {
-
+	//TODO
 }
 
 void Jogo::match(Jogador* curplayer)
 {
-	
+	//TODO
 }
 
 void Jogo::start()
@@ -196,14 +203,14 @@ void Jogo::start()
 	cout << "Por favor indique o nome do primeiro jogador: ";
 	string Jogador1Nome;
 	getline(cin, Jogador1Nome);
-	cout << "Por favor indique o nome do primeiro jogador: ";
+	cout << "Por favor indique o nome do segundo jogador: ";
 	string Jogador2Nome;
 	getline(cin, Jogador2Nome);
 	Jogador ONE(Jogador1Nome, 0, JogoBaralho.getFirstNPecas(JogoHandSize));
 	Jogador TWO(Jogador2Nome, 0, JogoBaralho.getFirstNPecas(JogoHandSize));
 	JogoJogador1 = ONE;
 	JogoJogador2 = TWO;
-	srand (time(NULL));
+	srand ((unsigned)time(NULL));
 	if ((rand() % 2) == 0)
 	{
 		cout << "Foi determinado que o primeiro jogador sera o primeiro a jogar.\n";

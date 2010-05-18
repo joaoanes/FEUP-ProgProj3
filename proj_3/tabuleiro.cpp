@@ -48,9 +48,8 @@ Celula Tabuleiro::accessCelula(Pos &position)
 	}
 void Tabuleiro::fillLine(vector<Celula>* ptrVec, string str)
 {
-	for (int i = 0; i < str.size() ; ++i)
+	for (char* curchar = &str[0]; curchar != NULL ; ++curchar)
 	{
-		char* curchar = &str[i];
 		if (!(*curchar == ' '))
 		{
 				Celula curcelula;
@@ -86,15 +85,19 @@ bool Tabuleiro::addPeca(Peca &piece, Pos &position) //add peca to position, fals
 		return true;
 	}
 
+void Tabuleiro::showLine(vector<Celula>* ptr)
+{
+	for (vector<Celula>::iterator ite = ptr->begin(); ite != ptr->end() ; ++ite)
+		cout << ite->peca.getLetter() << " ";
+	endl(cout);
+}
+
 void Tabuleiro::showTabuleiro()
 {
-	for (unsigned short i = 0; i < TabuleiroCelulas.size() ; ++i)
+	for (vector<vector<Celula>>::iterator ite = TabuleiroCelulas.begin(); ite != TabuleiroCelulas.end(); ++ite)
 	{
-		for (unsigned short i2 = 0; i2 < TabuleiroCelulas[i].size() ; i2++)
-		{
-			cout << TabuleiroCelulas[i][i].peca.getLetter() << " ";
-		}
-		endl(cout);
+		vector<Celula>& temp = *ite;
+		showLine(&temp);
 	}
 }
 

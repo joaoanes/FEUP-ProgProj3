@@ -14,6 +14,7 @@ public:
 	Jogo(unsigned short index, string txt); //load game
 	Jogo(unsigned short index, Jogador &player1, Jogador &player2, Tabuleiro &board, Dictionary &dic, unsigned short &handsize, Baralho &deck);
 	Jogo(unsigned short index);
+	Jogo(unsigned short index, unsigned short handsize);
 	Jogo(unsigned short index, Dictionary &dic, Baralho &deck, Tabuleiro &board);
 	virtual ~Jogo();
 
