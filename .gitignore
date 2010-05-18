@@ -58,3 +58,5 @@ _ReSharper*/
 proj_3/dicionario.txt
 ClassDiagram2.png
 ipch/proj_3-b183edca/proj_3_git-6bf6327c.ipch
+*.sdf
+Proj3.*
